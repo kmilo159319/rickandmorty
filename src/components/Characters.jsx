@@ -1,10 +1,7 @@
-import React,{useState,useEffect, useContext} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Caracters } from './styledComponents';
-import { ModContext } from './Body';
 
 export default function Characters() {
- 
- const changeMod = useContext(ModContext);
 
  const [characters, setCharacters] = useState([]);
 
@@ -14,17 +11,16 @@ export default function Characters() {
    .then(data => setCharacters(data.results));
  }, []);
  
-
   return (
     <div className=" col-12 col-md-10 col-lg-10 row mb-5 mt-5 justify-content-end justify-content-md-start">
-      <Caracters.scrollCaracters mod={changeMod} className='row col-12 col-md-8 col-lg-8 justify-content-end'>
+      <Caracters.scrollCaracters  className='row col-12 col-md-8 col-lg-8 justify-content-end'>
       {characters.map(character =>(
-          <Caracters.basicwrapper  mod={changeMod} className='row col-11 col-md-10 col-lg-11 ms-3 me-sm-3 mb-3'>
+          <Caracters.basicwrapper   className='row col-11 col-md-10 col-lg-11 ms-3 me-sm-3 mb-3'>
              <div class="overflow-hidden py-4 row d-flex justify-content-center justify-content-md-start">
               <div className='col-12 col-sm-8 col-md-8 col-lg-8 row'>
               <Caracters.tittlesmallCardText className="col-12">{character.name}</Caracters.tittlesmallCardText>
-              <Caracters.smallcardText mod={changeMod} className="col-6 col-md-12">{character.species}</Caracters.smallcardText>
-              <Caracters.smallcardText mod={changeMod} className="col-6 col-md-12">{character.gender}</Caracters.smallcardText>
+              <Caracters.smallcardText  className="col-6 col-md-12">{character.species}</Caracters.smallcardText>
+              <Caracters.smallcardText  className="col-6 col-md-12">{character.gender}</Caracters.smallcardText>
                </div>
                  <div className='col-9 col-sm-4 col-md-4 col-lg-4 d-flex align-items-center justify-content-end justify-content-md-end'>
                     <Caracters.imgCharacters className='col-12 ms-4' src={character.image}/>
