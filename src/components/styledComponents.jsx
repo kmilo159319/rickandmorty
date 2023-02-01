@@ -5,14 +5,6 @@ import tittlecharacters from '../img/Characters.png';
 import portal from '../img/portal.png';
 import tittlecharacters2 from '../img/tittlecharacters2.png';
 import titulo from '../img/titulo.gif';
-import { ModContext } from './Body';
-
-
-const ModTheme =  () => {
-   const changeMod = useContext(ModContext);
-   return changeMod;
-}
-
 
 
 const Themes = {
@@ -48,8 +40,8 @@ const BigCard =  {
    PrincipalCard : styled.div`
    height: 26rem;
    border-radius: 16px;
-   border: ${ ModTheme ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
-   background: ${ModTheme ? css`${Themes.background.darkGradier}, url(${e});` 
+   border: ${ props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}, url(${e});` 
                             : css`${Themes.background.lightGradier},url(${e});`};
    background-image: cover;
    background-size: contain;
@@ -63,8 +55,8 @@ const BigCard =  {
 
    BasicWrapperCard : styled(basicwrapper)`
    height: 30rem;
-   background: ${ModTheme ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
-   border: ${ModTheme ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
+   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
 `,
 
     BasicImg : styled.div`
@@ -80,7 +72,7 @@ const BigCard =  {
 
     ImgTittle : styled.div`
     height: 6em;
-    background-image: ${ModTheme ? css`url(${tittlecharacters})`:css`url(${tittlecharacters2})`};
+    background-image: ${props => props.mod ? css`url(${tittlecharacters})`:css`url(${tittlecharacters2})`};
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -117,8 +109,8 @@ const BigCard =  {
 const Caracters = {
 
    basicwrapper : styled(basicwrapper)`
-   background: ${ModTheme ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
-   border: ${ModTheme ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
+   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
    `,
 
    btnCharacters : styled.div`
@@ -161,7 +153,7 @@ const Caracters = {
    overflow-y: scroll;
    height: 25em;
    &::-webkit-scrollbar {
-      background: ${ModTheme ? css`rgba(27, 60, 87, 0.375)`: css`hsl(180, 40%, 19%)`};
+      background: ${props => props.mod ? css`rgba(27, 60, 87, 0.375)`: css`hsl(180, 40%, 19%)`};
        -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
       border-radius: 16px;
@@ -170,7 +162,7 @@ const Caracters = {
       width: 8px; 
   }
    &::-webkit-scrollbar-thumb {
-      background-color: ${ModTheme ? css`#193751dd`: css`#64eee571`};
+      background-color: ${props => props.mod ? css`#193751dd`: css`#64eee571`};
       border-radius: 20px;
   }
    `,
@@ -178,7 +170,7 @@ const Caracters = {
    smallcardText : styled.div`
    font-size: 20px;
    font-family: roboto;
-   color: ${ModTheme ? css`#1a86c5`: css`hsl(176, 61%, 60%)`};
+   color: ${props => props.mod ? css`#1a86c5`: css`hsl(176, 61%, 60%)`};
    text-transform: capitalize;
    text-align: left;
    @media (max-width: 576px){
@@ -238,21 +230,21 @@ const HeadStyled = {
    `,
  
    basicwrapper : styled(basicwrapper)`
-      background: ${ModTheme ? css`${Themes.background.darkGradier};` 
+      background: ${props => props.mod ? css`${Themes.background.darkGradier};` 
                             : css`${Themes.background.lightGradier}`};
     &:hover{
-      background-color: ${ModTheme ? css`${Themes.colors.ligthBlue}`: css`hsl(176, 41%, 30%)`};
+      background-color: ${props => props.mod ? css`${Themes.colors.ligthBlue}`: css`hsl(176, 41%, 30%)`};
       //background-color: hsl(176, 41%, 30%);
       cursor: pointer;
     };
     &:hover > i{
-      color: ${ModTheme ? css`${Themes.colors.white2}`: css`rgba(140, 240, 233, 0.87)`};
+      color: ${props => props.mod ? css`${Themes.colors.white2}`: css`rgba(140, 240, 233, 0.87)`};
       cursor: pointer;
     }
    `,
    
    icon : styled.i`
-    color: ${ModTheme ? css`${Themes.colors.white}`:css`rgba(140, 240, 233, 0.571)`};
+    color: ${props => props.mod ? css`${Themes.colors.white}`:css`rgba(140, 240, 233, 0.571)`};
     font-size: 20px;
     padding: .9rem 0 .9rem 0;
     @media (max-width: 576px){
@@ -277,7 +269,7 @@ const menuStyled = {
 
   navNavbar : styled.div`
     position: fixed;
-    background: ${ModTheme ? css`rgba(15,20,26,.7)` : css`hsla(180, 40%, 19%, 0.504)`};
+    background: ${props => props.mod ? css`rgba(15,20,26,.7)` : css`hsla(180, 40%, 19%, 0.504)`};
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     border-radius: 16px;
@@ -302,18 +294,18 @@ const menuStyled = {
    `,
 
   shineHighlight : styled.i`
-    color: ${ModTheme ? Themes.colors.white : Themes.colors.greenLight};
+    color: ${props => props.mod ? Themes.colors.white : Themes.colors.greenLight};
     transition: .2s;
     &:hover{
-      color: ${ModTheme ? Themes.colors.ligthBlue : Themes.colors.white};
-      filter: ${ModTheme ? css`drop-shadow(0 0 .75rem rgba(56, 191, 248, 0.188))` : css`drop-shadow(0 0 .75rem rgba(112, 248, 239, 0.314))`};
+      color: ${props => props.mod ? Themes.colors.ligthBlue : Themes.colors.white};
+      filter: ${props => props.mod ? css`drop-shadow(0 0 .75rem rgba(56, 191, 248, 0.188))` : css`drop-shadow(0 0 .75rem rgba(112, 248, 239, 0.314))`};
       cursor: pointer;
     }
   `,
 
    shineHighlight2 : styled.i`
-     color: ${ModTheme ? Themes.colors.ligthBlue : Themes.colors.white2};
-     filter: ${ModTheme ? css`drop-shadow(0 0 .75rem rgba(56, 191, 248, 0.188))` : css`drop-shadow(0 0 .75rem rgba(112, 248, 239, 0.314))`};
+     color: ${props => props.mod ? Themes.colors.ligthBlue : Themes.colors.white2};
+     filter: ${props => props.mod ? css`drop-shadow(0 0 .75rem rgba(56, 191, 248, 0.188))` : css`drop-shadow(0 0 .75rem rgba(112, 248, 239, 0.314))`};
      transition: .3s;
      &:hover{
       cursor: pointer;
@@ -354,7 +346,7 @@ const ButtonDarkStyled = {
 	   height: 40px;
 	   position: relative;
 	   display: block;
-      background: ${ModTheme ? css`${Themes.colors.darkBlue}` : css`hsla(176.1904761904762, 41.17647058823529%, 30%, 0.471)`};
+      background: ${props => props.mod? css`${Themes.colors.darkBlue}` : css`hsla(176.1904761904762, 41.17647058823529%, 30%, 0.471)`};
        -webkit-backdrop-filter: blur(5px);
        backdrop-filter: blur(5px);
 	   border-radius: 200px;

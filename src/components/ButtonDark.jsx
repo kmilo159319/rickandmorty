@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { ButtonDarkStyled } from './styledComponents'
+import { ModContext } from './Body'
 
 export const ButtonDark = (props) => {
+
+  const modTheme = useContext(ModContext);
 
   return (
     <div className='col-12' >
     <ButtonDarkStyled.Input type="checkbox" id="darkmode-toggle" onClick={props.darkMode} />
-    <ButtonDarkStyled.Label for="darkmode-toggle">
+    <ButtonDarkStyled.Label mod={modTheme} htmlFor="darkmode-toggle">
 	<ButtonDarkStyled.Svg version="1.1" className="sun" viewBox="0 0 496 496">
         <rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)" width="40.001" height="16" />
 		<rect x="46.9" y="164.979" transform="matrix(0.239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001" height="16" />

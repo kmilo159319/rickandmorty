@@ -10,7 +10,6 @@ import { BodyStyled } from './styledComponents';
 
 export const ModContext = createContext();
 
-
 const Body = () => {
 
   const [darkMode, setDarkMode] = useState(false);

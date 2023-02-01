@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { HeadStyled } from './styledComponents'
 import { ButtonDark } from './ButtonDark';
+import { ModContext } from './Body';
 
 
 
 const Head = (props) => {
+
+  const modtheme = useContext(ModContext);
 
   return (
     <HeadStyled.mainHead className="header row justify-content-end">
@@ -15,11 +18,11 @@ const Head = (props) => {
          <ButtonDark darkMode={props.handleClick}/>
         </div>
         <div className='col-6 col-md-3 d-flex justify-content-end align-items-start row'>
-               <HeadStyled.basicwrapper className='col-3 col-md-3 col-lg-2 m-2'>
-                  <HeadStyled.icon   className="fa-solid fa-bell" />
+               <HeadStyled.basicwrapper mod={modtheme} className='col-3 col-md-3 col-lg-2 m-2'>
+                  <HeadStyled.icon mod={modtheme} className="fa-solid fa-bell" />
                </HeadStyled.basicwrapper>
-               <HeadStyled.basicwrapper  className='col-3 col-md-3 col-lg-2 m-2'>
-                  <HeadStyled.icon   className="fa-solid fa-envelope" />
+               <HeadStyled.basicwrapper mod={modtheme} className='col-3 col-md-3 col-lg-2 m-2'>
+                  <HeadStyled.icon  mod={modtheme} className="fa-solid fa-envelope" />
                </HeadStyled.basicwrapper >
         </div>
     </HeadStyled.mainHead>
