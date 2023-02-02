@@ -1,11 +1,26 @@
-import React,{useState,useEffect, useContext} from 'react'
+import React,{useState,useEffect, useContext, useReducer} from 'react'
 import { Caracters } from './styledComponents';
 import { ModContext } from './Body';
 
-export default function Characters() {
+const initialState = {
+  add:[]
+}
 
+export default function Characters({myFavorites}) {
+
+ const addFavorites = (state, action) =>{
+      switch (action.type) {
+        case 'ADD_FAVORITES':
+          return {...state, add: [...state.add, action.payload]}
+        default:
+          return state;
+      }
+ }
  const [characters, setCharacters] = useState([]);
  const modTheme = useContext(ModContext);
+ const [favoritesCharacters, dispatch] = useReducer(addFavorites, initialState);
+
+ myFavorites(favoritesCharacters);
 
  useEffect(() => {
    fetch('https://rickandmortyapi.com/api/character/')
@@ -17,14 +32,15 @@ export default function Characters() {
     <div className=" col-12 col-md-10 col-lg-10 row mb-5 mt-5 justify-content-end justify-content-md-start">
       <Caracters.scrollCaracters mod={modTheme} className='row col-12 col-md-8 col-lg-8 justify-content-end'>
       {characters.map(character =>(
-          <Caracters.basicwrapper mod={modTheme} key={character.id} className='row col-11 col-md-10 col-lg-11 ms-3 me-sm-3 mb-3'>
-             <div className="overflow-hidden py-4 row d-flex justify-content-center justify-content-md-start">
+          <Caracters.basicwrapper mod={modTheme} key={character.id} className='row col-10 col-md-10 col-lg-11 ms-3 me-sm-3 mb-3'>
+             <div className="overflow-hidden py-4 row d-flex justify-content-center justify-content-md-start ms-2 ms-md-0">
               <div className='col-12 col-sm-8 col-md-8 col-lg-8 row'>
               <Caracters.tittlesmallCardText  className="col-12">{character.name}</Caracters.tittlesmallCardText>
               <Caracters.smallcardText mod={modTheme} className="col-6 col-md-12">{character.species}</Caracters.smallcardText>
               <Caracters.smallcardText mod={modTheme} className="col-6 col-md-12">{character.gender}</Caracters.smallcardText>
+              <Caracters.btnCharacters mod={modTheme} className='col-9 m-2'  onClick={()=>dispatch({type: 'ADD_FAVORITES', payload:character })}>add to favorites</Caracters.btnCharacters>
                </div>
-                 <div className='col-9 col-sm-4 col-md-4 col-lg-4 d-flex align-items-center justify-content-end justify-content-md-end'>
+                 <div className='col-9 col-sm-4 col-md-4 col-lg-4 d-flex align-items-center justify-content-end me-5 me-sm-0 me-md-0 justify-content-md-end ms-4'>
                     <Caracters.imgCharacters className='col-12 ms-4' src={character.image}/>
                  </div>
              </div>

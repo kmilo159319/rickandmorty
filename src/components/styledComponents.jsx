@@ -34,87 +34,8 @@ const basicwrapper = styled.div`
    transition: .2s;
 `;
 
-
-const BigCard =  {
-
-   PrincipalCard : styled.div`
-   height: 26rem;
-   border-radius: 16px;
-   border: ${ props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
-   background: ${props => props.mod ? css`${Themes.background.darkGradier}, url(${e});` 
-                            : css`${Themes.background.lightGradier},url(${e});`};
-   background-image: cover;
-   background-size: contain;
-   background-position: bottom;
-   background-repeat: no-repeat;
-   @media (max-width: 768px){
-      height: 26rem;
-      width: 125%;
-   }
-`,
-
-   BasicWrapperCard : styled(basicwrapper)`
-   height: 30rem;
-   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
-   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
-`,
-
-    BasicImg : styled.div`
-    height: 100%;
-    border-radius:16px 16px 0 0 ;
-    background-image: url(${portal});
-    background-size:contain;
-    background-position: start;
-    background-repeat: no-repeat;
-
-`,
-
-
-    ImgTittle : styled.div`
-    height: 6em;
-    background-image: ${props => props.mod ? css`url(${tittlecharacters})`:css`url(${tittlecharacters2})`};
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: 2s;
-    @media (max-width: 768px){
-      background-size: 30vh;
-   }
-`,
-
-   BigCardText : styled.div`
-   font-size: 30px;
-   font-family: roboto;
-   color: #fff;
-   text-transform: bold;
-   text-align: left;
-   @media (min-width: 768px){
-      font-size: 2rem;
-  }
-   @media (max-width: 768px){
-      font-size: 1.2rem;
-      text-align: center;
-   }
-`,
-
-   FlexCard : styled.div`
-   @media (min-width: 768px){
-      position: absolute;
-      right: 0;
-   }
-`
-
-}
-
-const Caracters = {
-
-   basicwrapper : styled(basicwrapper)`
-   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
-   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
-   `,
-
-   btnCharacters : styled.div`
-   display: inline-flex;
+const btnstyled = styled.button`
+    display: inline-flex;
    -webkit-box-align: center;
    align-items: center;
    -webkit-box-pack: center;
@@ -142,7 +63,28 @@ const Caracters = {
    box-shadow: rgb(0 0 0 / 2%) 0px 2px 0px;
    font-weight: 600;
    line-height: 1.5;
-   transition: background-color 0s ease 0s, border-color 0s ease 0s, color 0s ease 0s, all 0.1s ease-in-out 0s;
+   transition: background-color 5s ease 1s, border-color .5s ease 0s, color 0.7s ease 0s, all 0.1s ease-in-out 0s;
+`
+
+const Caracters = {
+
+   basicwrapper : styled(basicwrapper)`
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
+   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+   `,
+
+   btnCharacters : styled(btnstyled)`
+     height: 35px;
+     font-size: 12px;
+     padding: 10px;
+     background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`${Themes.colors.greenDark}`};
+     color: ${props => props.mod ? css`${Themes.colors.ligthBlue}`: css`${Themes.colors.white}`};
+     border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderDarkBlue}`};
+     &:hover{
+      border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderDarkBlue}`};
+      background: ${props => props.mod ? css`${Themes.colors.ligthBlue}`: css`rgba(15, 20, 26, 0.5)`};
+      color: ${props => props.mod ? css`${Themes.colors.white2}`: css`${Themes.colors.white2}`};
+     }
    `,
 
    imgCharacters: styled.img`
@@ -151,7 +93,7 @@ const Caracters = {
 
    scrollCaracters: styled.div`
    overflow-y: scroll;
-   height: 25em;
+   height: 30em;
    &::-webkit-scrollbar {
       background: ${props => props.mod ? css`rgba(27, 60, 87, 0.375)`: css`hsl(180, 40%, 19%)`};
        -webkit-backdrop-filter: blur(5px);
@@ -164,7 +106,7 @@ const Caracters = {
    &::-webkit-scrollbar-thumb {
       background-color: ${props => props.mod ? css`#193751dd`: css`#64eee571`};
       border-radius: 20px;
-  }
+  }   
    `,
 
    smallcardText : styled.div`
@@ -174,6 +116,9 @@ const Caracters = {
    text-transform: capitalize;
    text-align: left;
    @media (max-width: 576px){
+      font-size: 13px;
+   };
+   @media (max-width: 930px){
       font-size: 13px;
    }
    `,
@@ -186,7 +131,11 @@ const Caracters = {
    text-align: left;
    @media (max-width: 576px){
       font-size: 17px;
+   };
+   @media (max-width: 930px){
+      font-size: 2x;
    }
+
    `,
 
    flexcard2: styled.iframe`
@@ -202,6 +151,100 @@ const Caracters = {
    }
 
    `
+}
+
+
+
+const BigCard =  {
+
+   PrincipalCard : styled.div`
+   height: 26rem;
+   border-radius: 16px;
+   border: ${ props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}, url(${e});` 
+                            : css`${Themes.background.lightGradier},url(${e});`};
+   background-image: cover;
+   background-size: contain;
+   background-position: bottom;
+   background-repeat: no-repeat;
+   @media (max-width: 768px){
+      height: 26rem;
+      width: 125%;
+   }
+`,
+
+   BasicWrapperCard : styled(basicwrapper)`
+   background: ${props => props.mod ? css`${Themes.background.darkGradier}`: css`linear-gradient(to bottom, #64eee537, #050a0f3d)`};
+   border: ${props => props.mod ? css`${Themes.colors.borderDarkBlue}`:css`${Themes.colors.borderLigthBlue}`};
+`,
+
+    BasicImg : styled.div`
+    height: 7rem;
+    border-radius:16px 16px 0 0 ;
+    background-image: url(${portal});
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+`,
+
+
+    ImgTittle : styled.div`
+    height: 6em;
+    background-image: ${props => props.mod ? css`url(${tittlecharacters})`:css`url(${tittlecharacters2})`};
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 2s;
+    @media (max-width: 768px){
+      background-size: 30vh;
+   };
+`,
+
+   BigCardText : styled.div`
+   font-size: 30px;
+   font-family: roboto;
+   color: #fff;
+   text-transform: bold;
+   text-align: left;
+   @media (min-width: 768px){
+      font-size: 1rem;
+  }
+   @media (max-width: 768px){
+      font-size: 1.2rem;
+      text-align: center;
+   };
+   @media (max-width: 1800px){
+      font-size: 1.6rem;
+      text-align: center;
+   }
+`,
+
+   FlexCard : styled.div`
+   @media (min-width: 768px){
+      position: absolute;
+      right: 0;
+   }
+`,
+
+ scrollBigCard: styled(Caracters.scrollCaracters)`
+   overflow-x: hidden;
+   height: 15em;
+ `,
+
+tittlesmallCardText: styled(Caracters.tittlesmallCardText)`
+   font-size: 15px;
+`,
+
+smallcardText: styled(Caracters.smallcardText)`
+   font-size: 12px;
+`,
+
+imgCharacters: styled(Caracters.imgCharacters)`
+   width: 5em;
+`
+ 
+
 }
 
 const HeadStyled = {
@@ -290,7 +333,7 @@ const menuStyled = {
     @media (max-width: 768px){
       height: 60px;
         width: calc(95% - 20px);
-    }
+    };
    `,
 
   shineHighlight : styled.i`
@@ -325,7 +368,7 @@ const BodyStyled = {
       width: 101%;
       height: 100vh;
       object-fit: cover;
-    }
+    };
    `,
     BodyTemplate: styled.div`
       position: fixed;
