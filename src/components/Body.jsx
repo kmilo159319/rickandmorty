@@ -11,6 +11,7 @@ import { BodyStyled } from './styledComponents';
 export const ModContext = createContext();
 export const FavoritesContext = createContext();
 
+
 const Body = () => {
 
   const [darkMode, setDarkMode] = useState(false);

@@ -150,6 +150,36 @@ const Caracters = {
       position: relative !important;
    }
 
+   `,
+   inputCharacters : styled.input`
+     display: inline-flex;
+     -webkit-box-align: center;
+     align-items: center;
+     -webkit-box-pack: center;
+     justify-content: center;
+     position: relative;
+     box-sizing: border-box;
+     -webkit-tap-highlight-color: transparent;
+     outline: 0px;
+     margin: 0px;
+     user-select: none;
+     vertical-align: middle;
+     appearance: none;
+     text-decoration: none;
+     font-family: exo, -apple-system, Arial;
+     text-transform: lowercase;
+     background-color: rgba(15, 20, 26, 0.635);
+     border: 1px solid rgb(12, 74, 110);
+     border-radius: 16px;
+     color: ${Themes.colors.white2};
+     font-size: 14px;
+     padding: 14px;
+     height: 48px;
+     min-width: 50px;
+     box-shadow: rgb(0 0 0 / 2%) 0px 2px 0px;
+     font-weight: 600;
+     line-height: 1.5;
+     transition: background-color 5s ease 1s, border-color .5s ease 0s, color 0.7s ease 0s, all 0.1s ease-in-out 0s;
    `
 }
 
@@ -242,7 +272,38 @@ smallcardText: styled(Caracters.smallcardText)`
 
 imgCharacters: styled(Caracters.imgCharacters)`
    width: 5em;
-`
+`,
+
+inputFavorites : styled.input`
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-family: exo, -apple-system, Arial;
+  text-transform: lowercase;
+  background-color: rgba(15, 20, 26, 0.635);
+  border: 1px solid rgb(12, 74, 110);
+  border-radius: 16px;
+  color: ${Themes.colors.white2};
+  font-size: 14px;
+  padding: 14px;
+  height: 48px;
+  min-width: 50px;
+  box-shadow: rgb(0 0 0 / 2%) 0px 2px 0px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background-color 5s ease 1s, border-color .5s ease 0s, color 0.7s ease 0s, all 0.1s ease-in-out 0s;
+   `
  
 
 }
